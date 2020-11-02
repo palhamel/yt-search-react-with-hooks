@@ -2,18 +2,15 @@ import React, { useState } from "react";
 
 // refactoring the SearchBar. Functional components.
 
-const SearchBar = ({ onFormSubmit }) => {
+export const SearchBar = ({ onFormSubmit }) => {
   const [term, setTerm] = useState("");
-
-  const onInputChange = (event) => {
-    setTerm(event.target.value);
-  };
 
   const onSubmit = (event) => {
     event.preventDefault();
 
     onFormSubmit(term);
   };
+
   return (
     <div className="search-bar ui purple segment">
       <form onSubmit={onSubmit} className="ui form">
@@ -30,7 +27,7 @@ const SearchBar = ({ onFormSubmit }) => {
               type="text"
               placeholder="Cuddly Cows"
               value={term}
-              onChange={onInputChange}
+              onChange={(event) => setTerm(event.target.value)}
             />
           </div>
         </div>
@@ -38,9 +35,3 @@ const SearchBar = ({ onFormSubmit }) => {
     </div>
   );
 };
-
-//-----------
-
-export class SearchBar extends React.Component {
-  render() {}
-}
