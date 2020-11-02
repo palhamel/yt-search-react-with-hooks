@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+// refactoring the SearchBar. Functional components.
+const SearchBar = () => {
+ const [term, setTerm] = useState('');
+}
 
 export class SearchBar extends React.Component {
-  state = { term: "" };
 
   onInputChange = (event) => {
     this.setState({ term: event.target.value });
