@@ -10,7 +10,11 @@ import { VideoDetail } from "./VideoDetail";
 // useState x 2
 
 const App = () => {
-
+  const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  
+  
+  
 }
 
 // ---------
