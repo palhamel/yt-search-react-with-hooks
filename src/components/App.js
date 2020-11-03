@@ -1,26 +1,32 @@
 import "./app.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { SearchBar } from "./SearchBar";
 import youtube from "../api/youtube";
 import { VideoList } from "./VideoList";
 import { VideoDetail } from "./VideoDetail";
 
+// refactoring the App. Functional components.
+
+// useState x 2
+
+const App = () => {
+
+}
+
+// ---------
+
 export class App extends React.Component {
   state = { videos: [], selectedVideo: null };
-  // init app with a video:
   componentDidMount() {
-    this.onTermSubmit("Cuddly Cows");
+    this.onTermSubmit("https://www.youtube.com/watch?v=Rnil5LyK_B0");
   }
 
   onTermSubmit = async (term) => {
-    // console.log('from app.js:', term)
     const response = await youtube.get("/search", {
       params: {
         q: term,
       },
     });
-    // console.log(response);
-    // set state with response items array:
     this.setState({
       videos: response.data.items,
       selectedVideo: response.data.items[0],
@@ -28,7 +34,6 @@ export class App extends React.Component {
   };
 
   onVideoSelect = (video) => {
-    // console.log("from app:", video);
     this.setState({ selectedVideo: video });
   };
 
@@ -36,7 +41,6 @@ export class App extends React.Component {
     return (
       <div className="ui container">
         <SearchBar onFormSubmit={this.onTermSubmit} />
-        {/* We have {this.state.videos.length} videos. */}
         <div className="ui grid">
           <div className="ui row">
             <div className="eleven wide column">

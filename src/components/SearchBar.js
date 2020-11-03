@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 // refactoring the SearchBar. Functional components.
-
 export const SearchBar = ({ onFormSubmit }) => {
   const [term, setTerm] = useState("");
 
@@ -25,7 +24,7 @@ export const SearchBar = ({ onFormSubmit }) => {
             <i className="search icon"></i>
             <input
               type="text"
-              placeholder="Cuddly Cows"
+              placeholder="Let it snow!"
               value={term}
               onChange={(event) => setTerm(event.target.value)}
             />
