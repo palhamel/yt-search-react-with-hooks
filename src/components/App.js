@@ -12,35 +12,28 @@ import { VideoDetail } from "./VideoDetail";
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  
-  
-  
-}
 
-// ---------
+  useEffect(() => {
+    onTermSubmit("Christmas song");
+  }, []);
 
-export class App extends React.Component {
-  state = { videos: [], selectedVideo: null };
-  componentDidMount() {
-    this.onTermSubmit("https://www.youtube.com/watch?v=Rnil5LyK_B0");
-  }
-
-  onTermSubmit = async (term) => {
+  const onTermSubmit = async (term) => {
     const response = await youtube.get("/search", {
       params: {
         q: term,
       },
     });
-    this.setState({
-      videos: response.data.items,
-      selectedVideo: response.data.items[0],
-    });
+    setVideos(response.data.items);
+    setSelectedVideo(response.data.items[0]);
   };
-
-  onVideoSelect = (video) => {
-    this.setState({ selectedVideo: video });
+  const onVideoSelect = (video) => {
+    setSelectedVideo(video);
   };
+};
 
+// TODO: --------- Klar ovan - kvar under  - JSX block
+
+export class App extends React.Component {
   render() {
     return (
       <div className="ui container">
