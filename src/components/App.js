@@ -7,22 +7,23 @@ import { VideoDetail } from "./VideoDetail";
 
 // refactoring the App. Functional components.
 export const App = () => {
-  const [videos, setVideos] = useState([]);
+  // const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  useEffect(() => {
-    onTermSubmit("Christmas song");
-  }, []);
+  // setSelectedVideo(response.data.items[0]);
 
-  const onTermSubmit = async (term) => {
-    const response = await youtube.get("/search", {
-      params: {
-        q: term,
-      },
-    });
-    setVideos(response.data.items);
-    setSelectedVideo(response.data.items[0]);
-  };
+  // useEffect(() => {
+  //   onTermSubmit("Christmas song");
+  // }, []);
+
+  // const onTermSubmit = async (term) => {
+  //   const response = await youtube.get("/search", {
+  //     params: {
+  //       q: term,
+  //     },
+  //   });
+  //   setVideos(response.data.items);
+  // };
   //
 
   return (
