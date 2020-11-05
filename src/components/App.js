@@ -6,9 +6,6 @@ import { VideoList } from "./VideoList";
 import { VideoDetail } from "./VideoDetail";
 
 // refactoring the App. Functional components.
-
-// useState x 2
-
 export const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -26,6 +23,8 @@ export const App = () => {
     setVideos(response.data.items);
     setSelectedVideo(response.data.items[0]);
   };
+  //
+  
   return (
     <div className="ui container">
       <SearchBar onFormSubmit={onTermSubmit} />
@@ -36,9 +35,7 @@ export const App = () => {
           </div>
           <div className="five wide column">
             <p className="ui purple right ribbon label">Videos:</p>
-            {/* <VideoList onVideoSelect={onVideoSelect} videos={videos} /> */}
             <VideoList
-              // onVideoSelect={(video) => setSelectedVideo(video)}
               onVideoSelect={setSelectedVideo}
               videos={videos}
             />
