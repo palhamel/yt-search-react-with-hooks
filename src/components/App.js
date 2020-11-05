@@ -1,7 +1,7 @@
 import "./app.css";
 import React, { useState, useEffect } from "react";
 import { SearchBar } from "./SearchBar";
-import youtube from "../api/youtube";
+import youtube from "../apis/youtube";
 import { VideoList } from "./VideoList";
 import { VideoDetail } from "./VideoDetail";
 
@@ -24,7 +24,7 @@ export const App = () => {
     setSelectedVideo(response.data.items[0]);
   };
   //
-  
+
   return (
     <div className="ui container">
       <SearchBar onFormSubmit={onTermSubmit} />
