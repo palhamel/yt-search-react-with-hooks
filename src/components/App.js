@@ -1,15 +1,15 @@
 import "./app.css";
 import React, { useState, useEffect } from "react";
 import { SearchBar } from "./SearchBar";
-// import youtube from "../apis/youtube";
 import { VideoList } from "./VideoList";
 import { VideoDetail } from "./VideoDetail";
 import useVideos from "../hooks/useVideos";
 
-// refactoring the App. Functional components.
 export const App = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [videos, search] = useVideos("christmas");
+  const [videos, search] = useVideos(
+    "Cab Ride Wonderful Winter Norwegian Train"
+  );
 
   useEffect(() => {
     setSelectedVideo(videos[0]);
