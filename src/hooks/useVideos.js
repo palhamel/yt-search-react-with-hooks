@@ -4,12 +4,12 @@ import youtube from "../apis/youtube";
 const useVideos = (defaultSearchTerm) => {
   const [videos, setVideos] = useState([]);
 
+  // TODO: Saknar default search term - hooks error in console
   useEffect(() => {
     search(defaultSearchTerm);
   }, []);
-
   const search = async (term) => {
-    const response = await youtube.get("/search", {search
+    const response = await youtube.get("/search", {
       params: {
         q: term,
       },
