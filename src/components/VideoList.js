@@ -14,5 +14,9 @@ export const VideoList = ({ videos, onVideoSelect }) => {
   });
   // props.videos
   // return <div>{videos.length}</div>;
-  return <div className="ui relaxed divided list search-bar purple segment">{renderedList}</div>;
+  return (
+    <div className="ui relaxed divided list search-bar blue segment">
+      {renderedList}
+    </div>
+  );
 };

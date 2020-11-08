@@ -24,7 +24,7 @@ export const App = () => {
             <VideoDetail video={selectedVideo} />
           </div>
           <div className="five wide column">
-            <p className="ui purple right ribbon label">Videos:</p>
+            <p className="ui blue right ribbon label">Videos:</p>
             <VideoList onVideoSelect={setSelectedVideo} videos={videos} />
           </div>
         </div>
